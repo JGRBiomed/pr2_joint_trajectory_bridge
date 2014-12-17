@@ -1,0 +1,2 @@
+set(pr2_joint_trajectory_bridge_MSG_INCLUDE_DIRS "/home/obot/ros/raiti_ws/pr2_joint_trajectory_bridge/msg")
+set(pr2_joint_trajectory_bridge_MSG_DEPENDENCIES std_msgs)
