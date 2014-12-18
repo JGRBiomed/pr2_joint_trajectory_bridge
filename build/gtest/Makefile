@@ -108,16 +108,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-.PHONY : test/fast
-
 # The main all target
 all: cmake_check_build_system
 	cd /home/obot/ros/raiti_ws/pr2_joint_trajectory_bridge/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/obot/ros/raiti_ws/pr2_joint_trajectory_bridge/build/CMakeFiles /home/obot/ros/raiti_ws/pr2_joint_trajectory_bridge/build/gtest/CMakeFiles/progress.marks
@@ -239,7 +229,6 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... src/gtest-all.o"
 	@echo "... src/gtest-all.i"
 	@echo "... src/gtest-all.s"

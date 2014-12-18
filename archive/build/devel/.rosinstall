@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/obot/ros/raiti_ws/pr2_joint_trajectory_bridge/build/devel/setup.sh

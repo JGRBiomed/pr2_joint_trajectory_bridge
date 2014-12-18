@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "pr2_joint_trajectory_bridge")
+set(pr2_joint_trajectory_bridge_MAINTAINER "obot <obot@todo.todo>")
+set(pr2_joint_trajectory_bridge_DEPRECATED "")
+set(pr2_joint_trajectory_bridge_VERSION "0.0.0")
+set(pr2_joint_trajectory_bridge_BUILD_DEPENDS "roscpp" "rospy" "std_msgs" "message_generation")
+set(pr2_joint_trajectory_bridge_RUN_DEPENDS "roscpp" "rospy" "std_msgs" "message_runtime")
+set(pr2_joint_trajectory_bridge_BUILDTOOL_DEPENDS "catkin")

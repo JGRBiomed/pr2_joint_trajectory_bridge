@@ -108,16 +108,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-.PHONY : test/fast
-
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/obot/ros/raiti_ws/pr2_joint_trajectory_bridge/build/CMakeFiles /home/obot/ros/raiti_ws/pr2_joint_trajectory_bridge/build/CMakeFiles/progress.marks
@@ -150,6 +140,84 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named ROSBUILD_genmsg_cpp
+
+# Build rule for target.
+ROSBUILD_genmsg_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ROSBUILD_genmsg_cpp
+.PHONY : ROSBUILD_genmsg_cpp
+
+# fast build rule for target.
+ROSBUILD_genmsg_cpp/fast:
+	$(MAKE) -f CMakeFiles/ROSBUILD_genmsg_cpp.dir/build.make CMakeFiles/ROSBUILD_genmsg_cpp.dir/build
+.PHONY : ROSBUILD_genmsg_cpp/fast
+
+#=============================================================================
+# Target rules for targets named ROSBUILD_genmsg_lisp
+
+# Build rule for target.
+ROSBUILD_genmsg_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ROSBUILD_genmsg_lisp
+.PHONY : ROSBUILD_genmsg_lisp
+
+# fast build rule for target.
+ROSBUILD_genmsg_lisp/fast:
+	$(MAKE) -f CMakeFiles/ROSBUILD_genmsg_lisp.dir/build.make CMakeFiles/ROSBUILD_genmsg_lisp.dir/build
+.PHONY : ROSBUILD_genmsg_lisp/fast
+
+#=============================================================================
+# Target rules for targets named ROSBUILD_genmsg_py
+
+# Build rule for target.
+ROSBUILD_genmsg_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ROSBUILD_genmsg_py
+.PHONY : ROSBUILD_genmsg_py
+
+# fast build rule for target.
+ROSBUILD_genmsg_py/fast:
+	$(MAKE) -f CMakeFiles/ROSBUILD_genmsg_py.dir/build.make CMakeFiles/ROSBUILD_genmsg_py.dir/build
+.PHONY : ROSBUILD_genmsg_py/fast
+
+#=============================================================================
+# Target rules for targets named ROSBUILD_gensrv_cpp
+
+# Build rule for target.
+ROSBUILD_gensrv_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ROSBUILD_gensrv_cpp
+.PHONY : ROSBUILD_gensrv_cpp
+
+# fast build rule for target.
+ROSBUILD_gensrv_cpp/fast:
+	$(MAKE) -f CMakeFiles/ROSBUILD_gensrv_cpp.dir/build.make CMakeFiles/ROSBUILD_gensrv_cpp.dir/build
+.PHONY : ROSBUILD_gensrv_cpp/fast
+
+#=============================================================================
+# Target rules for targets named ROSBUILD_gensrv_lisp
+
+# Build rule for target.
+ROSBUILD_gensrv_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ROSBUILD_gensrv_lisp
+.PHONY : ROSBUILD_gensrv_lisp
+
+# fast build rule for target.
+ROSBUILD_gensrv_lisp/fast:
+	$(MAKE) -f CMakeFiles/ROSBUILD_gensrv_lisp.dir/build.make CMakeFiles/ROSBUILD_gensrv_lisp.dir/build
+.PHONY : ROSBUILD_gensrv_lisp/fast
+
+#=============================================================================
+# Target rules for targets named _catkin_empty_exported_target
+
+# Build rule for target.
+_catkin_empty_exported_target: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _catkin_empty_exported_target
+.PHONY : _catkin_empty_exported_target
+
+# fast build rule for target.
+_catkin_empty_exported_target/fast:
+	$(MAKE) -f CMakeFiles/_catkin_empty_exported_target.dir/build.make CMakeFiles/_catkin_empty_exported_target.dir/build
+.PHONY : _catkin_empty_exported_target/fast
+
+#=============================================================================
 # Target rules for targets named clean_test_results
 
 # Build rule for target.
@@ -176,173 +244,95 @@ doxygen/fast:
 .PHONY : doxygen/fast
 
 #=============================================================================
-# Target rules for targets named pr2_joint_trajectory_bridge_gencpp
+# Target rules for targets named rosbuild_clean-test-results
 
 # Build rule for target.
-pr2_joint_trajectory_bridge_gencpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pr2_joint_trajectory_bridge_gencpp
-.PHONY : pr2_joint_trajectory_bridge_gencpp
+rosbuild_clean-test-results: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosbuild_clean-test-results
+.PHONY : rosbuild_clean-test-results
 
 # fast build rule for target.
-pr2_joint_trajectory_bridge_gencpp/fast:
-	$(MAKE) -f CMakeFiles/pr2_joint_trajectory_bridge_gencpp.dir/build.make CMakeFiles/pr2_joint_trajectory_bridge_gencpp.dir/build
-.PHONY : pr2_joint_trajectory_bridge_gencpp/fast
+rosbuild_clean-test-results/fast:
+	$(MAKE) -f CMakeFiles/rosbuild_clean-test-results.dir/build.make CMakeFiles/rosbuild_clean-test-results.dir/build
+.PHONY : rosbuild_clean-test-results/fast
 
 #=============================================================================
-# Target rules for targets named pr2_joint_trajectory_bridge_generate_messages
+# Target rules for targets named rosbuild_precompile
 
 # Build rule for target.
-pr2_joint_trajectory_bridge_generate_messages: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pr2_joint_trajectory_bridge_generate_messages
-.PHONY : pr2_joint_trajectory_bridge_generate_messages
+rosbuild_precompile: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosbuild_precompile
+.PHONY : rosbuild_precompile
 
 # fast build rule for target.
-pr2_joint_trajectory_bridge_generate_messages/fast:
-	$(MAKE) -f CMakeFiles/pr2_joint_trajectory_bridge_generate_messages.dir/build.make CMakeFiles/pr2_joint_trajectory_bridge_generate_messages.dir/build
-.PHONY : pr2_joint_trajectory_bridge_generate_messages/fast
+rosbuild_precompile/fast:
+	$(MAKE) -f CMakeFiles/rosbuild_precompile.dir/build.make CMakeFiles/rosbuild_precompile.dir/build
+.PHONY : rosbuild_precompile/fast
 
 #=============================================================================
-# Target rules for targets named pr2_joint_trajectory_bridge_generate_messages_cpp
+# Target rules for targets named rosbuild_premsgsrvgen
 
 # Build rule for target.
-pr2_joint_trajectory_bridge_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pr2_joint_trajectory_bridge_generate_messages_cpp
-.PHONY : pr2_joint_trajectory_bridge_generate_messages_cpp
+rosbuild_premsgsrvgen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosbuild_premsgsrvgen
+.PHONY : rosbuild_premsgsrvgen
 
 # fast build rule for target.
-pr2_joint_trajectory_bridge_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/pr2_joint_trajectory_bridge_generate_messages_cpp.dir/build.make CMakeFiles/pr2_joint_trajectory_bridge_generate_messages_cpp.dir/build
-.PHONY : pr2_joint_trajectory_bridge_generate_messages_cpp/fast
+rosbuild_premsgsrvgen/fast:
+	$(MAKE) -f CMakeFiles/rosbuild_premsgsrvgen.dir/build.make CMakeFiles/rosbuild_premsgsrvgen.dir/build
+.PHONY : rosbuild_premsgsrvgen/fast
 
 #=============================================================================
-# Target rules for targets named pr2_joint_trajectory_bridge_generate_messages_lisp
+# Target rules for targets named rospack_genmsg
 
 # Build rule for target.
-pr2_joint_trajectory_bridge_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pr2_joint_trajectory_bridge_generate_messages_lisp
-.PHONY : pr2_joint_trajectory_bridge_generate_messages_lisp
+rospack_genmsg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rospack_genmsg
+.PHONY : rospack_genmsg
 
 # fast build rule for target.
-pr2_joint_trajectory_bridge_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/pr2_joint_trajectory_bridge_generate_messages_lisp.dir/build.make CMakeFiles/pr2_joint_trajectory_bridge_generate_messages_lisp.dir/build
-.PHONY : pr2_joint_trajectory_bridge_generate_messages_lisp/fast
+rospack_genmsg/fast:
+	$(MAKE) -f CMakeFiles/rospack_genmsg.dir/build.make CMakeFiles/rospack_genmsg.dir/build
+.PHONY : rospack_genmsg/fast
 
 #=============================================================================
-# Target rules for targets named pr2_joint_trajectory_bridge_generate_messages_py
+# Target rules for targets named rospack_genmsg_all
 
 # Build rule for target.
-pr2_joint_trajectory_bridge_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pr2_joint_trajectory_bridge_generate_messages_py
-.PHONY : pr2_joint_trajectory_bridge_generate_messages_py
+rospack_genmsg_all: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rospack_genmsg_all
+.PHONY : rospack_genmsg_all
 
 # fast build rule for target.
-pr2_joint_trajectory_bridge_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/pr2_joint_trajectory_bridge_generate_messages_py.dir/build.make CMakeFiles/pr2_joint_trajectory_bridge_generate_messages_py.dir/build
-.PHONY : pr2_joint_trajectory_bridge_generate_messages_py/fast
+rospack_genmsg_all/fast:
+	$(MAKE) -f CMakeFiles/rospack_genmsg_all.dir/build.make CMakeFiles/rospack_genmsg_all.dir/build
+.PHONY : rospack_genmsg_all/fast
 
 #=============================================================================
-# Target rules for targets named pr2_joint_trajectory_bridge_genlisp
+# Target rules for targets named rospack_genmsg_libexe
 
 # Build rule for target.
-pr2_joint_trajectory_bridge_genlisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pr2_joint_trajectory_bridge_genlisp
-.PHONY : pr2_joint_trajectory_bridge_genlisp
+rospack_genmsg_libexe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rospack_genmsg_libexe
+.PHONY : rospack_genmsg_libexe
 
 # fast build rule for target.
-pr2_joint_trajectory_bridge_genlisp/fast:
-	$(MAKE) -f CMakeFiles/pr2_joint_trajectory_bridge_genlisp.dir/build.make CMakeFiles/pr2_joint_trajectory_bridge_genlisp.dir/build
-.PHONY : pr2_joint_trajectory_bridge_genlisp/fast
+rospack_genmsg_libexe/fast:
+	$(MAKE) -f CMakeFiles/rospack_genmsg_libexe.dir/build.make CMakeFiles/rospack_genmsg_libexe.dir/build
+.PHONY : rospack_genmsg_libexe/fast
 
 #=============================================================================
-# Target rules for targets named pr2_joint_trajectory_bridge_genpy
+# Target rules for targets named rospack_gensrv
 
 # Build rule for target.
-pr2_joint_trajectory_bridge_genpy: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pr2_joint_trajectory_bridge_genpy
-.PHONY : pr2_joint_trajectory_bridge_genpy
+rospack_gensrv: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rospack_gensrv
+.PHONY : rospack_gensrv
 
 # fast build rule for target.
-pr2_joint_trajectory_bridge_genpy/fast:
-	$(MAKE) -f CMakeFiles/pr2_joint_trajectory_bridge_genpy.dir/build.make CMakeFiles/pr2_joint_trajectory_bridge_genpy.dir/build
-.PHONY : pr2_joint_trajectory_bridge_genpy/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_cpp
-
-# Build rule for target.
-roscpp_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_cpp
-.PHONY : roscpp_generate_messages_cpp
-
-# fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_cpp.dir/build.make CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_lisp
-
-# Build rule for target.
-roscpp_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_lisp
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_lisp.dir/build.make CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_py
-
-# Build rule for target.
-roscpp_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_py
-.PHONY : roscpp_generate_messages_py
-
-# fast build rule for target.
-roscpp_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_py.dir/build.make CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_cpp
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_cpp
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_lisp
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_lisp
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_py
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_py
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
+rospack_gensrv/fast:
+	$(MAKE) -f CMakeFiles/rospack_gensrv.dir/build.make CMakeFiles/rospack_gensrv.dir/build
+.PHONY : rospack_gensrv/fast
 
 #=============================================================================
 # Target rules for targets named run_tests
@@ -358,43 +348,56 @@ run_tests/fast:
 .PHONY : run_tests/fast
 
 #=============================================================================
-# Target rules for targets named std_msgs_generate_messages_cpp
+# Target rules for targets named test
 
 # Build rule for target.
-std_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_cpp
-.PHONY : std_msgs_generate_messages_cpp
+test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test
+.PHONY : test
 
 # fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
+test/fast:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
 
 #=============================================================================
-# Target rules for targets named std_msgs_generate_messages_lisp
+# Target rules for targets named test-future
 
 # Build rule for target.
-std_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_lisp
-.PHONY : std_msgs_generate_messages_lisp
+test-future: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-future
+.PHONY : test-future
 
 # fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
+test-future/fast:
+	$(MAKE) -f CMakeFiles/test-future.dir/build.make CMakeFiles/test-future.dir/build
+.PHONY : test-future/fast
 
 #=============================================================================
-# Target rules for targets named std_msgs_generate_messages_py
+# Target rules for targets named test-results
 
 # Build rule for target.
-std_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
-.PHONY : std_msgs_generate_messages_py
+test-results: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-results
+.PHONY : test-results
 
 # fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_py.dir/build.make CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
+test-results/fast:
+	$(MAKE) -f CMakeFiles/test-results.dir/build.make CMakeFiles/test-results.dir/build
+.PHONY : test-results/fast
+
+#=============================================================================
+# Target rules for targets named test-results-run
+
+# Build rule for target.
+test-results-run: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test-results-run
+.PHONY : test-results-run
+
+# fast build rule for target.
+test-results-run/fast:
+	$(MAKE) -f CMakeFiles/test-results-run.dir/build.make CMakeFiles/test-results-run.dir/build
+.PHONY : test-results-run/fast
 
 #=============================================================================
 # Target rules for targets named tests
@@ -441,6 +444,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... ROSBUILD_genmsg_cpp"
+	@echo "... ROSBUILD_genmsg_lisp"
+	@echo "... ROSBUILD_genmsg_py"
+	@echo "... ROSBUILD_gensrv_cpp"
+	@echo "... ROSBUILD_gensrv_lisp"
+	@echo "... _catkin_empty_exported_target"
 	@echo "... clean_test_results"
 	@echo "... doxygen"
 	@echo "... edit_cache"
@@ -448,25 +457,19 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... pr2_joint_trajectory_bridge_gencpp"
-	@echo "... pr2_joint_trajectory_bridge_generate_messages"
-	@echo "... pr2_joint_trajectory_bridge_generate_messages_cpp"
-	@echo "... pr2_joint_trajectory_bridge_generate_messages_lisp"
-	@echo "... pr2_joint_trajectory_bridge_generate_messages_py"
-	@echo "... pr2_joint_trajectory_bridge_genlisp"
-	@echo "... pr2_joint_trajectory_bridge_genpy"
 	@echo "... rebuild_cache"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... roscpp_generate_messages_py"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... rosbuild_clean-test-results"
+	@echo "... rosbuild_precompile"
+	@echo "... rosbuild_premsgsrvgen"
+	@echo "... rospack_genmsg"
+	@echo "... rospack_genmsg_all"
+	@echo "... rospack_genmsg_libexe"
+	@echo "... rospack_gensrv"
 	@echo "... run_tests"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... std_msgs_generate_messages_py"
 	@echo "... test"
+	@echo "... test-future"
+	@echo "... test-results"
+	@echo "... test-results-run"
 	@echo "... tests"
 	@echo "... gtest"
 	@echo "... gtest_main"
