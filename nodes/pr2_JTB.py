@@ -19,7 +19,8 @@ def converter():
     rospy.init_node(NODE_NAME)
     #rospy.Subscriber(topic_name, trajectory_msgs.msg.JointTrajectoryBridge)
     rospy.Subscriber("/pr2_joint_trajectory_bridge", JointTrajectoryPointBridge)
-    pub = rospy.Publisher("/trajectory_msgs", JointTrajectoryPoint)
+    pub = rospy.Publisher("/pr2_joint_trajectory_bridge", JointTrajectoryPoint)
+    #pub = rospy.Publisher("/trajectory_msgs", JointTrajectoryPoint)
     jointtrajectory.positions = JointTrajectoryPointBridge.positions
     jointtrajectory.velocities = JointTrajectoryPointBridge.velocities
 
