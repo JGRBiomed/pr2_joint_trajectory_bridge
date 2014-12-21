@@ -49,6 +49,8 @@ class pr2JointTrajectoryBridge :
         jt.name = []
         jt.position = []
 
+        return jt
+
     def converter():
         rospy.init_node(NODE_NAME)
         #rospy.Subscriber(topic_name, trajectory_msgs.msg.JointTrajectoryBridge)
