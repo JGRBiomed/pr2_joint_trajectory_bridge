@@ -16,11 +16,8 @@ class pr2JointTrajectoryBridge :
     def __init__(self, arm):
 
         self.arm = arm
-
-        self.currentTrajectory = JointTrajectory()
-
+        self.currentTrajectory = JointTrajectoryBridge()
         rospy.Subscriber("/pr2_joint_trajectory_bridge", JointTrajectory, self.jointTrajectoryCallback)
-
         if self.arm=="left_arm" :
             self.trajPublisher = rospy.Publisher('/pr2/l_arm/move_group/display_planned_path', JointTrajectory)
         elif self.arm=="right_arm" :
@@ -30,33 +27,27 @@ class pr2JointTrajectoryBridge :
         else :
             rospy.logerr("pr2 -- unknown joint")
 
-    def jointStateCallback(self, data):
+    def jointTrajectoryCallback(self, data):
         self.currentState = data
 
     def callback(data):
         JointTrajectory = data      
 
-    def formatJointTrajectoryMsg(self, j, offset) :
+    #def formatJointTrajectoryMsg(self, data) :
+    #    jt = JointTrajectory()
+    #    jt.header.seq = 0
+    #    jt.header.stamp = rospy.Time.now()
+    #    jt.header.frame_id = ""
+    #    jt.name = []
+    #    jt.position = []
 
-        if not (len(j) == self.numJoints) :
-            rospy.logerr("pr2 formatJointTrajectoryMsg() -- incorrectly sized joint message")
-            return None
-
-        jt = JointTrajectory()
-        jt.header.seq = 0
-        jt.header.stamp = rospy.Time.now()
-        jt.header.frame_id = ""
-        jt.name = []
-        jt.position = []
-
-        return jt
+    #    return jt
 
     def converter():
         rospy.init_node(NODE_NAME)
         #rospy.Subscriber(topic_name, trajectory_msgs.msg.JointTrajectoryBridge)
-        rospy.Subscriber("/pr2_joint_trajectory_bridge", JointTrajectoryPointBridge)
-        pub = rospy.Publisher("/pr2_joint_trajectory_bridge", JointTrajectoryPointBridge)
-        #pub = rospy.Publisher("/trajectory_msgs", JointTrajectoryPoint)
+        rospy.Subscriber("/pr2_joint_trajectory_bridge", JointTrajectoryBridge)
+        pub = rospy.Publisher("/pr2_joint_trajectory_bridge", JointTrajectory)
         #jointtrajectory.positions = JointTrajectoryPointBridge.positions
         #jointtrajectory.velocities = JointTrajectoryPointBridge.velocities
 
@@ -64,4 +55,9 @@ class pr2JointTrajectoryBridge :
         pub.publish(jointtrajectory)
 
 if __name__ == '__main__':
-   converter()
+    converter()
+    try:
+        pr2TrajectoryGeneratorLeftArm = pr2JointTrajectoryBridge(7, 500, "left_arm")
+        r2TrajectoryGeneratorRightArm = pr2JointTrajectoryBridge(7, 500, "right_arm")
+        r2TrajectoryGeneratorLeftLeg = pr2JointTrajectoryBridge(7, 500, "left_leg")
+        r2TrajectoryGeneratorHead = pr2JointTrajectoryBridge(3, 500, "head")
