@@ -22,11 +22,6 @@
     :initarg :accelerations
     :type (cl:vector cl:float)
    :initform (cl:make-array 0 :element-type 'cl:float :initial-element 0.0))
-   (effort
-    :reader effort
-    :initarg :effort
-    :type (cl:vector cl:float)
-   :initform (cl:make-array 0 :element-type 'cl:float :initial-element 0.0))
    (time_from_start
     :reader time_from_start
     :initarg :time_from_start
@@ -56,11 +51,6 @@
 (cl:defmethod accelerations-val ((m <JointTrajectoryPointBridge>))
   (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader pr2_joint_trajectory_bridge-msg:accelerations-val is deprecated.  Use pr2_joint_trajectory_bridge-msg:accelerations instead.")
   (accelerations m))
-
-(cl:ensure-generic-function 'effort-val :lambda-list '(m))
-(cl:defmethod effort-val ((m <JointTrajectoryPointBridge>))
-  (roslisp-msg-protocol:msg-deprecation-warning "Using old-style slot reader pr2_joint_trajectory_bridge-msg:effort-val is deprecated.  Use pr2_joint_trajectory_bridge-msg:effort instead.")
-  (effort m))
 
 (cl:ensure-generic-function 'time_from_start-val :lambda-list '(m))
 (cl:defmethod time_from_start-val ((m <JointTrajectoryPointBridge>))
@@ -113,21 +103,6 @@
     (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream)))
    (cl:slot-value msg 'accelerations))
-  (cl:let ((__ros_arr_len (cl:length (cl:slot-value msg 'effort))))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_arr_len) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_arr_len) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_arr_len) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_arr_len) ostream))
-  (cl:map cl:nil #'(cl:lambda (ele) (cl:let ((bits (roslisp-utils:encode-double-float-bits ele)))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 32) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 40) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 48) bits) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 56) bits) ostream)))
-   (cl:slot-value msg 'effort))
   (cl:let ((__sec (cl:floor (cl:slot-value msg 'time_from_start)))
         (__nsec (cl:round (cl:* 1e9 (cl:- (cl:slot-value msg 'time_from_start) (cl:floor (cl:slot-value msg 'time_from_start)))))))
     (cl:write-byte (cl:ldb (cl:byte 8 0) __sec) ostream)
@@ -195,24 +170,6 @@
       (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
     (cl:setf (cl:aref vals i) (roslisp-utils:decode-double-float-bits bits))))))
-  (cl:let ((__ros_arr_len 0))
-    (cl:setf (cl:ldb (cl:byte 8 0) __ros_arr_len) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 8) __ros_arr_len) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 16) __ros_arr_len) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 24) __ros_arr_len) (cl:read-byte istream))
-  (cl:setf (cl:slot-value msg 'effort) (cl:make-array __ros_arr_len))
-  (cl:let ((vals (cl:slot-value msg 'effort)))
-    (cl:dotimes (i __ros_arr_len)
-    (cl:let ((bits 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 32) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 40) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 48) bits) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 56) bits) (cl:read-byte istream))
-    (cl:setf (cl:aref vals i) (roslisp-utils:decode-double-float-bits bits))))))
     (cl:let ((__sec 0) (__nsec 0))
       (cl:setf (cl:ldb (cl:byte 8 0) __sec) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) __sec) (cl:read-byte istream))
@@ -233,22 +190,21 @@
   "pr2_joint_trajectory_bridge/JointTrajectoryPointBridge")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<JointTrajectoryPointBridge>)))
   "Returns md5sum for a message object of type '<JointTrajectoryPointBridge>"
-  "f3cd1e1c4d320c79d6985c904ae5dcd3")
+  "84fd2dcf68773c3dc0e9db894f4e8b40")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'JointTrajectoryPointBridge)))
   "Returns md5sum for a message object of type 'JointTrajectoryPointBridge"
-  "f3cd1e1c4d320c79d6985c904ae5dcd3")
+  "84fd2dcf68773c3dc0e9db894f4e8b40")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<JointTrajectoryPointBridge>)))
   "Returns full string definition for message of type '<JointTrajectoryPointBridge>"
-  (cl:format cl:nil "float64[] positions~%float64[] velocities~%float64[] accelerations~%float64[] effort~%duration time_from_start~%~%~%"))
+  (cl:format cl:nil "float64[] positions~%float64[] velocities~%float64[] accelerations~%duration time_from_start~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'JointTrajectoryPointBridge)))
   "Returns full string definition for message of type 'JointTrajectoryPointBridge"
-  (cl:format cl:nil "float64[] positions~%float64[] velocities~%float64[] accelerations~%float64[] effort~%duration time_from_start~%~%~%"))
+  (cl:format cl:nil "float64[] positions~%float64[] velocities~%float64[] accelerations~%duration time_from_start~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <JointTrajectoryPointBridge>))
   (cl:+ 0
      4 (cl:reduce #'cl:+ (cl:slot-value msg 'positions) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 8)))
      4 (cl:reduce #'cl:+ (cl:slot-value msg 'velocities) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 8)))
      4 (cl:reduce #'cl:+ (cl:slot-value msg 'accelerations) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 8)))
-     4 (cl:reduce #'cl:+ (cl:slot-value msg 'effort) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 8)))
      8
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <JointTrajectoryPointBridge>))
@@ -257,6 +213,5 @@
     (cl:cons ':positions (positions msg))
     (cl:cons ':velocities (velocities msg))
     (cl:cons ':accelerations (accelerations msg))
-    (cl:cons ':effort (effort msg))
     (cl:cons ':time_from_start (time_from_start msg))
 ))

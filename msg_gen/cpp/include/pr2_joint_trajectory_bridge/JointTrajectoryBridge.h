@@ -75,12 +75,12 @@ template<class ContainerAllocator>
 struct MD5Sum< ::pr2_joint_trajectory_bridge::JointTrajectoryBridge_<ContainerAllocator> > {
   static const char* value() 
   {
-    return "65b4f94a94d1ed67169da35a02f33d3f";
+    return "72214029c6fba47b2135714577dd745e";
   }
 
   static const char* value(const  ::pr2_joint_trajectory_bridge::JointTrajectoryBridge_<ContainerAllocator> &) { return value(); } 
-  static const uint64_t static_value1 = 0x65b4f94a94d1ed67ULL;
-  static const uint64_t static_value2 = 0x169da35a02f33d3fULL;
+  static const uint64_t static_value1 = 0x72214029c6fba47bULL;
+  static const uint64_t static_value2 = 0x2135714577dd745eULL;
 };
 
 template<class ContainerAllocator>
@@ -126,7 +126,6 @@ MSG: pr2_joint_trajectory_bridge/JointTrajectoryPointBridge\n\
 float64[] positions\n\
 float64[] velocities\n\
 float64[] accelerations\n\
-float64[] effort\n\
 duration time_from_start\n\
 \n\
 ";

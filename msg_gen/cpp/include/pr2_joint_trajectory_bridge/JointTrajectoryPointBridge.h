@@ -25,7 +25,6 @@ struct JointTrajectoryPointBridge_ {
   : positions()
   , velocities()
   , accelerations()
-  , effort()
   , time_from_start()
   {
   }
@@ -34,7 +33,6 @@ struct JointTrajectoryPointBridge_ {
   : positions(_alloc)
   , velocities(_alloc)
   , accelerations(_alloc)
-  , effort(_alloc)
   , time_from_start()
   {
   }
@@ -47,9 +45,6 @@ struct JointTrajectoryPointBridge_ {
 
   typedef std::vector<double, typename ContainerAllocator::template rebind<double>::other >  _accelerations_type;
   std::vector<double, typename ContainerAllocator::template rebind<double>::other >  accelerations;
-
-  typedef std::vector<double, typename ContainerAllocator::template rebind<double>::other >  _effort_type;
-  std::vector<double, typename ContainerAllocator::template rebind<double>::other >  effort;
 
   typedef ros::Duration _time_from_start_type;
   ros::Duration time_from_start;
@@ -83,12 +78,12 @@ template<class ContainerAllocator>
 struct MD5Sum< ::pr2_joint_trajectory_bridge::JointTrajectoryPointBridge_<ContainerAllocator> > {
   static const char* value() 
   {
-    return "f3cd1e1c4d320c79d6985c904ae5dcd3";
+    return "84fd2dcf68773c3dc0e9db894f4e8b40";
   }
 
   static const char* value(const  ::pr2_joint_trajectory_bridge::JointTrajectoryPointBridge_<ContainerAllocator> &) { return value(); } 
-  static const uint64_t static_value1 = 0xf3cd1e1c4d320c79ULL;
-  static const uint64_t static_value2 = 0xd6985c904ae5dcd3ULL;
+  static const uint64_t static_value1 = 0x84fd2dcf68773c3dULL;
+  static const uint64_t static_value2 = 0xc0e9db894f4e8b40ULL;
 };
 
 template<class ContainerAllocator>
@@ -108,7 +103,6 @@ struct Definition< ::pr2_joint_trajectory_bridge::JointTrajectoryPointBridge_<Co
     return "float64[] positions\n\
 float64[] velocities\n\
 float64[] accelerations\n\
-float64[] effort\n\
 duration time_from_start\n\
 \n\
 ";
@@ -132,7 +126,6 @@ template<class ContainerAllocator> struct Serializer< ::pr2_joint_trajectory_bri
     stream.next(m.positions);
     stream.next(m.velocities);
     stream.next(m.accelerations);
-    stream.next(m.effort);
     stream.next(m.time_from_start);
   }
 
@@ -168,12 +161,6 @@ struct Printer< ::pr2_joint_trajectory_bridge::JointTrajectoryPointBridge_<Conta
     {
       s << indent << "  accelerations[" << i << "]: ";
       Printer<double>::stream(s, indent + "  ", v.accelerations[i]);
-    }
-    s << indent << "effort[]" << std::endl;
-    for (size_t i = 0; i < v.effort.size(); ++i)
-    {
-      s << indent << "  effort[" << i << "]: ";
-      Printer<double>::stream(s, indent + "  ", v.effort[i]);
     }
     s << indent << "time_from_start: ";
     Printer<ros::Duration>::stream(s, indent + "  ", v.time_from_start);

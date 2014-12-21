@@ -7,18 +7,17 @@ import struct
 import genpy
 
 class JointTrajectoryPointBridge(genpy.Message):
-  _md5sum = "f3cd1e1c4d320c79d6985c904ae5dcd3"
+  _md5sum = "84fd2dcf68773c3dc0e9db894f4e8b40"
   _type = "pr2_joint_trajectory_bridge/JointTrajectoryPointBridge"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """float64[] positions
 float64[] velocities
 float64[] accelerations
-float64[] effort
 duration time_from_start
 
 """
-  __slots__ = ['positions','velocities','accelerations','effort','time_from_start']
-  _slot_types = ['float64[]','float64[]','float64[]','float64[]','duration']
+  __slots__ = ['positions','velocities','accelerations','time_from_start']
+  _slot_types = ['float64[]','float64[]','float64[]','duration']
 
   def __init__(self, *args, **kwds):
     """
@@ -28,7 +27,7 @@ duration time_from_start
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       positions,velocities,accelerations,effort,time_from_start
+       positions,velocities,accelerations,time_from_start
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -43,15 +42,12 @@ duration time_from_start
         self.velocities = []
       if self.accelerations is None:
         self.accelerations = []
-      if self.effort is None:
-        self.effort = []
       if self.time_from_start is None:
         self.time_from_start = genpy.Duration()
     else:
       self.positions = []
       self.velocities = []
       self.accelerations = []
-      self.effort = []
       self.time_from_start = genpy.Duration()
 
   def _get_types(self):
@@ -78,10 +74,6 @@ duration time_from_start
       buff.write(_struct_I.pack(length))
       pattern = '<%sd'%length
       buff.write(struct.pack(pattern, *self.accelerations))
-      length = len(self.effort)
-      buff.write(_struct_I.pack(length))
-      pattern = '<%sd'%length
-      buff.write(struct.pack(pattern, *self.effort))
       _x = self
       buff.write(_struct_2i.pack(_x.time_from_start.secs, _x.time_from_start.nsecs))
     except struct.error as se: self._check_types(se)
@@ -117,13 +109,6 @@ duration time_from_start
       start = end
       end += struct.calcsize(pattern)
       self.accelerations = struct.unpack(pattern, str[start:end])
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%sd'%length
-      start = end
-      end += struct.calcsize(pattern)
-      self.effort = struct.unpack(pattern, str[start:end])
       _x = self
       start = end
       end += 8
@@ -153,10 +138,6 @@ duration time_from_start
       buff.write(_struct_I.pack(length))
       pattern = '<%sd'%length
       buff.write(self.accelerations.tostring())
-      length = len(self.effort)
-      buff.write(_struct_I.pack(length))
-      pattern = '<%sd'%length
-      buff.write(self.effort.tostring())
       _x = self
       buff.write(_struct_2i.pack(_x.time_from_start.secs, _x.time_from_start.nsecs))
     except struct.error as se: self._check_types(se)
@@ -193,13 +174,6 @@ duration time_from_start
       start = end
       end += struct.calcsize(pattern)
       self.accelerations = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
-      start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%sd'%length
-      start = end
-      end += struct.calcsize(pattern)
-      self.effort = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
       _x = self
       start = end
       end += 8

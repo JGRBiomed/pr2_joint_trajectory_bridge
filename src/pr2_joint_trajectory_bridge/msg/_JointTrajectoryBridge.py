@@ -9,7 +9,7 @@ import genpy
 import std_msgs.msg
 
 class JointTrajectoryBridge(genpy.Message):
-  _md5sum = "65b4f94a94d1ed67169da35a02f33d3f"
+  _md5sum = "72214029c6fba47b2135714577dd745e"
   _type = "pr2_joint_trajectory_bridge/JointTrajectoryBridge"
   _has_header = True #flag to mark the presence of a Header object
   _full_text = """Header header
@@ -41,7 +41,6 @@ MSG: pr2_joint_trajectory_bridge/JointTrajectoryPointBridge
 float64[] positions
 float64[] velocities
 float64[] accelerations
-float64[] effort
 duration time_from_start
 
 """
@@ -119,10 +118,6 @@ duration time_from_start
         buff.write(_struct_I.pack(length))
         pattern = '<%sd'%length
         buff.write(struct.pack(pattern, *val1.accelerations))
-        length = len(val1.effort)
-        buff.write(_struct_I.pack(length))
-        pattern = '<%sd'%length
-        buff.write(struct.pack(pattern, *val1.effort))
         _v1 = val1.time_from_start
         _x = _v1
         buff.write(_struct_2i.pack(_x.secs, _x.nsecs))
@@ -195,13 +190,6 @@ duration time_from_start
         start = end
         end += struct.calcsize(pattern)
         val1.accelerations = struct.unpack(pattern, str[start:end])
-        start = end
-        end += 4
-        (length,) = _struct_I.unpack(str[start:end])
-        pattern = '<%sd'%length
-        start = end
-        end += struct.calcsize(pattern)
-        val1.effort = struct.unpack(pattern, str[start:end])
         _v2 = val1.time_from_start
         _x = _v2
         start = end
@@ -251,10 +239,6 @@ duration time_from_start
         buff.write(_struct_I.pack(length))
         pattern = '<%sd'%length
         buff.write(val1.accelerations.tostring())
-        length = len(val1.effort)
-        buff.write(_struct_I.pack(length))
-        pattern = '<%sd'%length
-        buff.write(val1.effort.tostring())
         _v3 = val1.time_from_start
         _x = _v3
         buff.write(_struct_2i.pack(_x.secs, _x.nsecs))
@@ -328,13 +312,6 @@ duration time_from_start
         start = end
         end += struct.calcsize(pattern)
         val1.accelerations = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
-        start = end
-        end += 4
-        (length,) = _struct_I.unpack(str[start:end])
-        pattern = '<%sd'%length
-        start = end
-        end += struct.calcsize(pattern)
-        val1.effort = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
         _v4 = val1.time_from_start
         _x = _v4
         start = end
