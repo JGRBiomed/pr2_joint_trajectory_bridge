@@ -51,13 +51,13 @@ class pr2JointTrajectoryBridge :
         #jointtrajectory.positions = JointTrajectoryPointBridge.positions
         #jointtrajectory.velocities = JointTrajectoryPointBridge.velocities
 
-    while not rospy.is_shutdown():
+i    while not rospy.is_shutdown():
         pub.publish(jointtrajectory)
 
 if __name__ == '__main__':
     converter()
     try:
         pr2TrajectoryGeneratorLeftArm = pr2JointTrajectoryBridge(7, 500, "left_arm")
-        r2TrajectoryGeneratorRightArm = pr2JointTrajectoryBridge(7, 500, "right_arm")
-        r2TrajectoryGeneratorLeftLeg = pr2JointTrajectoryBridge(7, 500, "left_leg")
-        r2TrajectoryGeneratorHead = pr2JointTrajectoryBridge(3, 500, "head")
+        pr2TrajectoryGeneratorRightArm = pr2JointTrajectoryBridge(7, 500, "right_arm")
+        pr2TrajectoryGeneratorLeftLeg = pr2JointTrajectoryBridge(7, 500, "left_leg")
+        pr2TrajectoryGeneratorHead = pr2JointTrajectoryBridge(3, 500, "head")
