@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
+  trajectory_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -69,6 +70,7 @@ add_message_files(
 generate_messages(
    DEPENDENCIES
    std_msgs
+   trajectory_msgs
  )
 
 ###################################
@@ -83,7 +85,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES pr2_joint_trajectory_bridge
-   CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
+   CATKIN_DEPENDS roscpp rospy std_msgs message_runtime trajectory_msgs
 #  DEPENDS system_lib
 )
 
