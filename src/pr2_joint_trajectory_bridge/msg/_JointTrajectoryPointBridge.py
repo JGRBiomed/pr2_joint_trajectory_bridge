@@ -76,8 +76,8 @@ duration time_from_start
       buff.write(struct.pack(pattern, *self.accelerations))
       _x = self
       buff.write(_struct_2i.pack(_x.time_from_start.secs, _x.time_from_start.nsecs))
-    except struct.error as se: self._check_types(se)
-    except TypeError as te: self._check_types(te)
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
 
   def deserialize(self, str):
     """
@@ -140,8 +140,8 @@ duration time_from_start
       buff.write(self.accelerations.tostring())
       _x = self
       buff.write(_struct_2i.pack(_x.time_from_start.secs, _x.time_from_start.nsecs))
-    except struct.error as se: self._check_types(se)
-    except TypeError as te: self._check_types(te)
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
 
   def deserialize_numpy(self, str, numpy):
     """

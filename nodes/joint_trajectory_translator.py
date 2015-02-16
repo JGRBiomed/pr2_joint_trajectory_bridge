@@ -18,7 +18,7 @@ class JointTrajectoryTranslator :
         self.subscriber = rospy.Subscriber(self.sub_name, pr2_joint_trajectory_bridge.msg.JointTrajectoryBridge, self.callback)
 
         # publisher to the robot controller of the old/groovy JT type
-        self.publisher = rospy.Publisher(self.pub_name, trajectory_msgs.msg.JointTrajectory, queue_size=10)
+        self.publisher = rospy.Publisher(self.pub_name, trajectory_msgs.msg.JointTrajectory)
 
 
     def callback(self, data):
@@ -42,7 +42,7 @@ class JointTrajectoryTranslator :
 
 if __name__ == '__main__':
     
-    rospy.init_node("JointTrajectoryTranslator")
+    rospy.init_node("JointTrajectoryTranslator", anonymous=True)
 
     # set up the list of robot controllers that need to be translated
     controller_list = []

@@ -1,8 +1,0 @@
-prefix=/home/obot/ros/raiti_ws/pr2_joint_trajectory_bridge/build/devel
-
-Name: pr2_joint_trajectory_bridge
-Description: Description of pr2_joint_trajectory_bridge
-Version: 0.0.0
-Cflags: -I/home/obot/ros/raiti_ws/pr2_joint_trajectory_bridge/build/devel/include
-Libs: -L/home/obot/ros/raiti_ws/pr2_joint_trajectory_bridge/build/devel/lib 
-Requires: roscpp rospy std_msgs message_runtime

@@ -1,2 +1,0 @@
-set(pr2_joint_trajectory_bridge_MSG_INCLUDE_DIRS "/usr/local/share/pr2_joint_trajectory_bridge/msg")
-set(pr2_joint_trajectory_bridge_MSG_DEPENDENCIES std_msgs)
